@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+      <link rel="stylesheet" href="./Assets/style.css">
+</head>
+<body>
+      <nav class="p3 align-middle">
+            <h3>Weather It Rains or Pours</h3>
+      </nav>
+      <div class="container">
+            <div class="row">
+                  <form class="col-m-4 float-left searchField" action="">
+                        <label for="Search">
+                        </br>Find The Weather of Cities
+                        </br><input id="search" size="30" type="text" placeholder="Type City Name">
+                        <input type="button" value="">
+                        </label>
+
+                        
+                  </form>
+                  <div class="col-m-8 weatherInfo">
+                        <div id="weatherLayout" class="row">
+                              <div id="weatherNow" class="col-12 weatherBoxes"></div>
+                              <div id="weatherFive" class="col-12 weatherBoxes"></div>
+                        </div>
+
+                  </div>
+
+            </div>
+            
+
+      </div>
+      
+</body>
+<!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+<script type="text/javascript" src="./develop/moment.js"></script>
+<script type="text/javascript" src="./develop/weather.js"></script>
+</html>
