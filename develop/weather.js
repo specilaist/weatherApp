@@ -27,25 +27,25 @@ $(document).ready(function(){
                   console.log(($cityName).text());
                   // city date
                   const $cityDate = $('<p>').text(moment().format("dddd MMMM Do YYYY, h:mm:ss a"));
-                  console.log($cityDate.text())
+                  // console.log($cityDate.text())
                   // weather icons
                  const $weatherIcons = $('<p>').text(`The sky is ${weather[0].main}`);
-                  console.log($weatherIcons);
+                  // console.log($weatherIcons);
                   // temp
                   let kelvins = main.temp
                   let converttemp = ((kelvins - 273.15) * 1.80 + 32).toFixed(2);
                   let temp = `Temp = ${converttemp}`;
                   const $temp = $('<p>').text(temp);
-                  console.log($temp)
+                  // console.log($temp)
                   //  // humidity
                   
                   let humidity = `Humidity = ${main.humidity}`;
                   const $humidity = $('<p>').text(humidity);
-                  console.log($humidity)
+                  // console.log($humidity)
                    // wind speed
                   let windSpeed = `Wind Speed = ${wind.speed}`;
                   const $windSpeed = $('<p>').text(windSpeed);
-                  console.log($windSpeed)
+                  // console.log($windSpeed)
                   //  // Uv index
                   // const $uvIndex = $('<p>').text();
                   // console.log($uvIndex);
@@ -55,38 +55,38 @@ $(document).ready(function(){
                   $weatherDiv.append($cityName, $cityDate, $temp, $windSpeed, $humidity, $weatherIcons);
                   $('#weatherNow').append($weatherDiv);
             }
-
-            function addButton () {
-
-            }
-
             createPage();
-       
-
       });
-
-     
-
 
       $.ajax({
             url: weatherFive,
             method: 'GET',
-      }).then(function({list}) {
-            console.log(list[0]);
-            let weatherlist = list[4]
-            console.log(weatherlist);
-           
-            // 
-            // Future weather conditions date, weather icon, temp, humidity
-            function fiveDays() {
-                  let forecast = [];
-                  $.each(weatherlist, function(index,value) {
-                        const $date = $('<div>').text();
-                        const $otherWeather = $('<div>').text();
-                        const $otherTemp = $('<div>').text();
-                        const $otherHumidity = $('<div>').text();
-                  })
+      }).then(function(fiveDays) {
+            console.log(fiveDays);
+            console.log(fiveDays.list.length);
+            console.log(fiveDays.list);
+            let forecastArr = fiveDays.list;
+            console.log(forecastArr[0].dt_txt);
+            for (let i = 0; i < forecastArr.length; i+8) {
+                  let weatherlist = forecastArr[i];
+                  const $date = $('<p>').text(weatherlist.dt_txt);
+                  const $otherWeather = $('<p>').text(weatherlist.weather[0].description);
+                  const $otherTemp = $('<p>').text(weatherlist.main.temp);
+                  const $otherHumidity = $('<p>').text(weatherlist.main.humidity);
+
+                  const $forecasts = $('<div>');
+                  $forecasts.append($date, $otherWeather, $otherTemp, $otherHumidity);
+                  $('#weatherFive').append($forecasts);
+                  // function fiveDays() {
+                  // }
             }
+
+            function forecast () {
+
+            }
+
+            forecast();
+
       });
 
       $.each(cities, function(index,value){
@@ -107,7 +107,7 @@ $(document).ready(function(){
             let $newSearch = $('<button>').attr({'class':'searched bg-info border', 'id':searchItem});
             $('.searchField').append($newSearch);
             createPage();
-            fiveDays();
+            // fiveDays();
       });
 
       // $(document).on('click', '', function() {
