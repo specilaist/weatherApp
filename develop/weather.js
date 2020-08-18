@@ -73,69 +73,48 @@ $(document).ready(function(){
             method: 'GET',
       }).then(function({list}) {
             console.log(list[0]);
-            let weatherlist = list[0]
+            let weatherlist = list[4]
+            console.log(weatherlist);
            
             // 
             // Future weather conditions date, weather icon, temp, humidity
             function fiveDays() {
-                  const firstDay = $('<div>').append();
-                  const seocndDay = $('<div>').append();
-                  const thirdDay = $('<div>').append();
-                  const fourthDay = $('<div>').append();
-                  const fifthDay = $('<div>').append();
-                  for (let i = 0; i < 5; i+8) {
+                  let forecast = [];
+                  $.each(weatherlist, function(index,value) {
                         const $date = $('<div>').text();
                         const $otherWeather = $('<div>').text();
                         const $otherTemp = $('<div>').text();
                         const $otherHumidity = $('<div>').text();
-
-                        
-
-
-                  }
+                  })
             }
       });
-      
-      // city name
-      
-      function cityButtons(response) {
-            const $cityButtons = $('<div>').addClass('border bg-light');
-            $cityButtons.text()
 
-      
-      }
-
-      function renderButtons() {
-
-            // Deletes the movies prior to adding new movies
-            // (this is necessary otherwise you will have repeat buttons)
-            $("#searched").empty();
-            // Loops through the array of movies
-            for (var i = 0; i < cities.length; i++) {
-    
-              // Then dynamicaly generates buttons for each movie in the array
-              // This code $("<button>") is all jQuery needs to create the beginning and end tag. (<button></button>)
-              var a = $("<button>");
-              // Adds a class of movie to our button
-              a.addClass("");
-              // Added a data-attribute
-              a.attr("data-name", cities[i]);
-              // Provided the initial button text
-              a.text(cities[i]);
-              // Added the button to the buttons-view div
-              $("#searched").append(a);
-            }
-      }
+      $.each(cities, function(index,value){
+            const weatherBtn = $('<button>');
+            weatherBtn.addClass('weather-button', 'weather', 'weather-button-color');
+            weatherBtn.attr('data-weather', value);
+            weatherBtn.text(value);
+            $('#searched').append(weatherBtn);
+          })
 
       $(document).on('click', '#seachButton', function(e) {
             e.preventDefault();
-            let searchItem = $('#search').text();
+            const newWeather = $('<div>');
+            newWeather.addClass('weather-button', 'weather', 'weather-button-color');
+            newWeather.text($(this).attr('data-weather'));
+            $('#display').append(newWeather);
             console.log(searchItem)
             let $newSearch = $('<button>').attr({'class':'searched bg-info border', 'id':searchItem});
             $('.searchField').append($newSearch);
-            return;
-            fiveDays()
+            createPage();
+            fiveDays();
       });
+
+      // $(document).on('click', '', function() {
+      //       const fridgeMagnet = $('<div>');
+      //       fridgeMagnet.addClass('letter', 'fridge-color');
+      //       fridgeMagnet.text($(this).attr('data-letter'));
+      //       $('#display').append(fridgeMagnet);
 
 
 });
