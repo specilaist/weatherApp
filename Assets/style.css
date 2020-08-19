@@ -18,6 +18,10 @@ h2 {
 
 }
 
+p {
+      margin: 0px;
+}
+
 .button {
       border: 0;
       height: 20px;
@@ -56,6 +60,12 @@ h2 {
       color: rgb(red, green, blue);
 }
 
+#clearButton {
+      background-color: rgb(80, 68, 193);
+      border: 0;
+      color: rgb(red, green, blue);
+}
+
 .weather-button {
       border: 5px;
       margin: 5px;
@@ -64,10 +74,12 @@ h2 {
 }
 
 .forecasts {
-      height: 50px;
-      width: 50px;
+      display: flex;
+      flex-direction: row;
       margin: 0px;
       padding: 0px;
       text-align: left;
+      float: left;
+      text-size-adjust: auto;
 }
 

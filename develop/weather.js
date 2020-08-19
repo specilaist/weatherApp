@@ -108,7 +108,7 @@ $(document).ready(function(){
             let cityName = $("#search").val();
             console.log(cityName);
             searchWeather(cityName);
-            const newWeather = $('<div>');
+            const newWeather = $('<button>');
             newWeather.addClass('weather-button', 'weather', 'weather-button-color');
             newWeather.text(cityName);
             $('#searched').append(newWeather);
@@ -118,6 +118,18 @@ $(document).ready(function(){
             // createPage();
             // fiveDays();
       });
+
+      $("#searchButton").on('click', function() {
+            event.preventDefault();
+            console.log(this);
+            $('#searched').empty();
+      });
+
+      $('.searched').on('click', function() {
+            event.preventDefault();
+            console.log(this)
+            // let button = 
+      })
 
       // $(document).on('click', '', function() {
       //       const fridgeMagnet = $('<div>');
