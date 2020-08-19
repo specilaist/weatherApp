@@ -1,4 +1,8 @@
-h3 {
+body {
+
+}
+
+h2 {
       height: 50px;
       text-align: center;
 
@@ -8,8 +12,10 @@ h3 {
       height: 100px;
 }
 
-p {
-      margin: auto;
+.p3 {
+      background-color: sandybrown;
+      font-size: large;
+
 }
 
 .button {
@@ -24,3 +30,44 @@ p {
       border-radius: 10px;
       background-color: rgb(80, 68, 193);
 }
+
+#weatherLine {
+      display: flex;
+      flex-direction: row;
+}
+
+#fiveRow {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+
+}
+
+#field {
+      
+      margin: 0px;
+      width: 1400px;
+
+}
+
+#searchButton {
+      background-color: rgb(80, 68, 193);
+      border: 0;
+      color: rgb(red, green, blue);
+}
+
+.weather-button {
+      border: 5px;
+      margin: 5px;
+      text-align: center;
+      background-color: skyblue;
+}
+
+.forecasts {
+      height: 50px;
+      width: 50px;
+      margin: 0px;
+      padding: 0px;
+      text-align: left;
+}
+

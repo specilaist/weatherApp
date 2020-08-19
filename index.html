@@ -9,15 +9,15 @@
 </head>
 <body>
       <nav class="p3 align-middle">
-            <h3>Weather It Rains or Pours</h3>
+            <h2>Weather It Rains or Pours</h3>
       </nav>
-      <div class="container">
-            <div class="row mg-3">
-                  <form class="col-m-4 float-left searchField border-2" action="">
+      <div class="container" id="field">
+            <div class="row" id="weatherLine">
+                  <form class="col-sm-4 float-left searchField border-2" action="">
                         <label for="Search">
                         </br>Find The Weather of Cities
                         </br><input id="search" size="30" type="text" placeholder="Type City Name">
-                        <button id="searchButton" class="button"></button>
+                        <button id="searchButton" class="btn">SEARCH</button>
                         </label>
                         <div id="searched">
 
@@ -25,10 +25,13 @@
 
                         
                   </form>
-                  <div class="col-m-8 weatherInfo border-2">
+                  <div class="col-sm-8 weatherInfo border-2">
                         <div id="weatherLayout" class="row">
                               <div id="weatherNow" class="col-12 weatherBoxes"></div>
-                              <div id="weatherFive" class="col-12 weatherBoxes"></div>
+                              <div class="row" id="fiveRow">
+                                    <div id="weatherFive" class="col-12 weatherBoxes"></div>
+                              </div>
+                              
                         </div>
 
                   </div>

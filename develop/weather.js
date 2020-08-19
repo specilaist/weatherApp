@@ -2,14 +2,16 @@ $(document).ready(function(){
 
       // let cityName = $('#search').text("");
       const $inputName = $('#search').text("");
-      let cityName = 'Oakland';
       let cities = []
 
+
       const apiKey = 'be2f09ec98c4e0bb359ff520b85ba9bb';
-      const weatherFive = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}`;
-      const weatherCurrent = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}`;
+     
 
-
+      function searchWeather (cityName) {
+            let weatherFive = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}`;
+            let weatherCurrent = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}`;
+      
 
       $.ajax({
             url: weatherCurrent,
@@ -53,6 +55,7 @@ $(document).ready(function(){
             
                   let $weatherDiv = $('<div>');
                   $weatherDiv.append($cityName, $cityDate, $temp, $windSpeed, $humidity, $weatherIcons);
+                  $('#weatherNow').empty();
                   $('#weatherNow').append($weatherDiv);
             }
             createPage();
@@ -67,14 +70,14 @@ $(document).ready(function(){
             console.log(fiveDays.list);
             let forecastArr = fiveDays.list;
             console.log(forecastArr[0].dt_txt);
-            for (let i = 0; i < forecastArr.length; i+8) {
+            for (let i = 0; i < forecastArr.length; i=i+8) {
                   let weatherlist = forecastArr[i];
                   const $date = $('<p>').text(weatherlist.dt_txt);
                   const $otherWeather = $('<p>').text(weatherlist.weather[0].description);
                   const $otherTemp = $('<p>').text(weatherlist.main.temp);
                   const $otherHumidity = $('<p>').text(weatherlist.main.humidity);
 
-                  const $forecasts = $('<div>');
+                  const $forecasts = $('<div>').addClass('col-sm-2 forecasts');
                   $forecasts.append($date, $otherWeather, $otherTemp, $otherHumidity);
                   $('#weatherFive').append($forecasts);
                   // function fiveDays() {
@@ -89,6 +92,8 @@ $(document).ready(function(){
 
       });
 
+      }
+
       $.each(cities, function(index,value){
             const weatherBtn = $('<button>');
             weatherBtn.addClass('weather-button', 'weather', 'weather-button-color');
@@ -97,16 +102,20 @@ $(document).ready(function(){
             $('#searched').append(weatherBtn);
           })
 
-      $(document).on('click', '#seachButton', function(e) {
-            e.preventDefault();
+      $("#searchButton").on('click', function() {
+            event.preventDefault();
+            console.log(this)
+            let cityName = $("#search").val();
+            console.log(cityName);
+            searchWeather(cityName);
             const newWeather = $('<div>');
             newWeather.addClass('weather-button', 'weather', 'weather-button-color');
-            newWeather.text($(this).attr('data-weather'));
-            $('#display').append(newWeather);
+            newWeather.text(cityName);
+            $('#searched').append(newWeather);
             console.log(searchItem)
             let $newSearch = $('<button>').attr({'class':'searched bg-info border', 'id':searchItem});
-            $('.searchField').append($newSearch);
-            createPage();
+            $('#searched').append($newSearch);
+            // createPage();
             // fiveDays();
       });
 
