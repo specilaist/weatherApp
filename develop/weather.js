@@ -84,12 +84,6 @@ $(document).ready(function(){
                   // }
             }
 
-            function forecast () {
-
-            }
-
-            forecast();
-
       });
 
       }
@@ -113,10 +107,13 @@ $(document).ready(function(){
             newWeather.addClass('weather-button', 'weather', 'weather-button-color');
             newWeather.text(cityName);
             $('#searched').append(newWeather);
-            console.log(newWeather)
-
-            let $newSearch = $('<button>').attr({'class':'searched bg-info border', 'id':searchItem});
-            $('#searched').append($newSearch);
+            console.log(newWeather);
+            // let $newSearch = $('<button>').attr({'class':'searched bg-info border', 'id':searchItem});
+            // $('#searched').append($newSearch);
+            let storage = localStorage.setItem('weather-button', );
+            console.log(storage);
+            storage.push(cities);
+            console.log(cities)
             // createPage();
             // fiveDays();
       });
@@ -129,12 +126,9 @@ $(document).ready(function(){
 
       $('.weather-button').on('click', function() {
             event.preventDefault();
-            console.log(this)
+            console.log(this);
             let buttonName = $('.weather-button').val();
-
-            console.log(buttonName)
-            
-            // let button = 
+            searchWeather(buttonName);
       })
 
       // $(document).on('click', '', function() {

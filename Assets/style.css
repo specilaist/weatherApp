@@ -66,11 +66,18 @@ p {
       color: rgb(red, green, blue);
 }
 
+#five {
+      margin-top: 20px;
+      justify-content: space-evenly;
+}
+
 .weather-button {
       border: 5px;
       margin: 5px;
-      text-align: center;
+      text-align: left;
       background-color: skyblue;
+      font-size: 12;
+      height: 50px;
 }
 
 .forecasts {
