@@ -2,7 +2,8 @@
 
 I made rendered the sections dynamically
 I was able to pull the API for both the current and five day forecast
-
+I put the Current weather info in the first container
+I put the five day forecast in the bottom container
 
 ## Review
 

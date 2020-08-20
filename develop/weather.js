@@ -96,7 +96,7 @@ $(document).ready(function(){
             $('#searched').append(weatherBtn);
           })
 
-      $("#searchButton").on('click', function() {
+      $("#searchButton").on('click', function(event) {
             event.preventDefault();
             console.log(this)
             $('#weatherFive').empty();
@@ -110,24 +110,27 @@ $(document).ready(function(){
             console.log(newWeather);
             // let $newSearch = $('<button>').attr({'class':'searched bg-info border', 'id':searchItem});
             // $('#searched').append($newSearch);
-            let storage = localStorage.setItem('weather-button', );
-            console.log(storage);
-            storage.push(cities);
-            console.log(cities)
+            // cities.push(); 
+            // localStorage.setItem("history", JSON.stringify(newWeather));
+
+            // console.log(storage);
+            // storage.push(cities);
+            // console.log(cities)
             // createPage();
             // fiveDays();
       });
 
-      $("#clearButton").on('click', function() {
+      $("#clearButton").on('click', function(event) {
             event.preventDefault();
             console.log(this);
             $('#searched').empty();
       });
 
-      $('.weather-button').on('click', function() {
+      $('.weather-button').on('click', function(event) {
             event.preventDefault();
-            console.log(this);
-            let buttonName = $('.weather-button').val();
+            // console.log(this);
+            let buttonName = $('.weather-button').text();
+            console.log(buttonName);
             searchWeather(buttonName);
       })
 
